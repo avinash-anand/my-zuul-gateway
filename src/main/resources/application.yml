@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: my-zuul-gateway
+server:
+  port: 7879
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7878/eureka/
+
+zuul:
+  prefix: /api
+  routes:
+    book-service:
+      path: /book-service/**
+      serviceId: MY-BOOK-SERVICE
+    book-review-service:
+      path: /book-review-service/**
+      serviceId: MY-BOOK-REVIEW-SERVICE
